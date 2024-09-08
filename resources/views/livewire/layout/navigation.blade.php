@@ -1,23 +1,12 @@
 <?php
 
 use App\Livewire\Actions\Logout;
-use function Livewire\Volt\state;
 
 $logout = function (Logout $logout) {
     $logout();
 
     $this->redirect('/', navigate: true);
 };
-
-state([
-    'navigationLinks' => [
-        [
-            'href' => route('dashboard'),
-            'active' => request()->routeIs('dashboard'),
-            'content' => __('Dashboard'),
-        ],
-    ]
-]);
 
 ?>
 
@@ -34,13 +23,10 @@ state([
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    @foreach ($navigationLinks as $link)
-                        <x-nav-link :href="$link['href']" :active="$link['active']" wire:navigate>
-                            {{ $link['content'] }}
-                        </x-nav-link>
-                    @endforeach
-                </div>
+                <x-nav-links
+                    link-component="nav-link"
+                    class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
+                />
             </div>
 
             <!-- Settings Dropdown -->
@@ -91,13 +77,10 @@ state([
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            @foreach ($navigationLinks as $link)
-                <x-responsive-nav-link :href="$link['href']" :active="$link['active']" wire:navigate>
-                    {{ $link['content'] }}
-                </x-responsive-nav-link>
-            @endforeach
-        </div>
+        <x-nav-links
+            link-component="responsive-nav-link"
+             class="pt-2 pb-3 space-y-1"
+        />
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

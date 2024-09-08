@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.table {
+    text-align: left;
+}
+
+.table thead {
+    border-bottom: 2px solid #0002;
+    min-height: 4em;
+}
+
+:where(.table) td,th {
+    padding: 0.4em 0.8em;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #0002;
+}
+
+.table tbody tr:hover {
+    background-color: #0001;
+}

@@ -3,15 +3,13 @@
 use App\Models\Fund;
 use function Livewire\Volt\state;
 
-$funds = Fund::all();
-
 state([
-    'funds' => $funds,
+    'funds' => Fund::all(),
 ]);
 
 ?>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>id</th>

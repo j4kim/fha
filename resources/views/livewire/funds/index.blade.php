@@ -9,10 +9,13 @@ state(['search'])->url();
 
 $funds = computed(function () {
     $search = strtolower($this->search);
-    if (!$search) {
-        return Fund::all();
+    $query = Fund::query();
+    if ($search) {
+        $query->where(DB::raw('LOWER(name)'), 'like', "%$search%")
+            ->orWhere(DB::raw('LOWER(description)'), 'like', "%$search%")
+            ->orWhere(DB::raw('LOWER(ref)'), 'like', "%$search%");
     }
-    return Fund::where(DB::raw('LOWER(name)'), 'like', "%$search%")->get();
+    return $query->get();
 });
 ?>
 

@@ -1,13 +1,19 @@
 <?php
 
 use App\Models\Fund;
-use function Livewire\Volt\{state, layout};
+use function Livewire\Volt\{state, layout, computed};
 
 layout("layouts.app");
 
-state([
-    'funds' => Fund::all(),
-]);
+state(['search'])->url();
+
+$funds = computed(function () {
+    $search = strtolower($this->search);
+    if (!$search) {
+        return Fund::all();
+    }
+    return Fund::where(DB::raw('LOWER(name)'), 'like', "%$search%")->get();
+});
 ?>
 
 <x-slot name="header">
@@ -16,27 +22,36 @@ state([
     </h2>
 </x-slot>
 
-<table class="table w-full">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Ref</th>
-            <th>Name</th>
-            <th class="hidden sm:table-cell">Description</th>
-            <th>Status</th>
-            <th class="hidden md:table-cell">Update</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($funds as $fund)
-        <tr href="{{route('funds.show', $fund->id)}}" wire:navigate class="cursor-pointer">
-            <td>{{ $fund->id }}</td>
-            <td>{{ $fund->ref }}</td>
-            <td>{{ $fund->name }}</td>
-            <td class="hidden sm:table-cell text-sm lg:text-base">{{ $fund->description }}</td>
-            <td>{{ $fund->status }}</td>
-            <td class="hidden md:table-cell">{{ $fund->updated_at->format("d.m.y H:i") }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div>
+    <div class="mb-6">
+        <x-text-input
+            type="search"
+            placeholder="search"
+            wire:model.live.debounce.300ms="search"
+        />
+    </div>
+    <table class="table w-full">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ref</th>
+                <th>Name</th>
+                <th class="hidden sm:table-cell">Description</th>
+                <th>Status</th>
+                <th class="hidden md:table-cell">Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($this->funds as $fund)
+            <tr href="{{route('funds.show', $fund->id)}}" wire:navigate class="cursor-pointer">
+                <td>{{ $fund->id }}</td>
+                <td>{{ $fund->ref }}</td>
+                <td>{{ $fund->name }}</td>
+                <td class="hidden sm:table-cell text-sm lg:text-base">{{ $fund->description }}</td>
+                <td>{{ $fund->status }}</td>
+                <td class="hidden md:table-cell">{{ $fund->updated_at->format("d.m.y H:i") }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>

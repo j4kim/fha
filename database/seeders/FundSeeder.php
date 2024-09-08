@@ -20,6 +20,6 @@ class FundSeeder extends Seeder
             'status' => 'archive',
         ]);
 
-        Fund::factory(2)->create();
+        Fund::factory(20)->create();
     }
 }

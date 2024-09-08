@@ -22,7 +22,7 @@ state([
     </thead>
     <tbody>
         @foreach ($funds as $fund)
-        <tr>
+        <tr href="{{route('funds.show', $fund->id)}}" wire:navigate class="cursor-pointer">
             <td>{{ $fund->id }}</td>
             <td>{{ $fund->ref }}</td>
             <td>{{ $fund->name }}</td>

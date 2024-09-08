@@ -8,8 +8,8 @@ $links = [
         'content' => __('Dashboard'),
     ],
     [
-        'href' => route('funds'),
-        'active' => request()->routeIs('funds'),
+        'href' => route('funds.index'),
+        'active' => request()->routeIs('funds.*'),
         'content' => __('Funds'),
     ],
 ];

@@ -7,6 +7,11 @@ $links = [
         'active' => request()->routeIs('dashboard'),
         'content' => __('Dashboard'),
     ],
+    [
+        'href' => route('funds'),
+        'active' => request()->routeIs('funds'),
+        'content' => __('Funds'),
+    ],
 ];
 @endphp
 

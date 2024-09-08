@@ -17,8 +17,9 @@ use Spatie\Permission\Models\Role;
 |
 */
 
-Route::view('/', 'dashboard')
-    ->name('dashboard');
+Route::view('/', 'dashboard')->name('dashboard');
+
+Route::view('/funds', 'funds')->name('funds');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

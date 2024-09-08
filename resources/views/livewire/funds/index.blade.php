@@ -16,15 +16,15 @@ state([
     </h2>
 </x-slot>
 
-<table class="table">
+<table class="table w-full">
     <thead>
         <tr>
-            <th>id</th>
-            <th>ref</th>
-            <th>name</th>
-            <th>description</th>
-            <th>status</th>
-            <th>updated_at</th>
+            <th>#</th>
+            <th>Ref</th>
+            <th>Name</th>
+            <th class="hidden sm:table-cell">Description</th>
+            <th>Status</th>
+            <th class="hidden md:table-cell">Update</th>
         </tr>
     </thead>
     <tbody>
@@ -33,9 +33,9 @@ state([
             <td>{{ $fund->id }}</td>
             <td>{{ $fund->ref }}</td>
             <td>{{ $fund->name }}</td>
-            <td>{{ $fund->description }}</td>
+            <td class="hidden sm:table-cell text-sm lg:text-base">{{ $fund->description }}</td>
             <td>{{ $fund->status }}</td>
-            <td>{{ $fund->updated_at }}</td>
+            <td class="hidden md:table-cell">{{ $fund->updated_at->format("d.m.y H:i") }}</td>
         </tr>
         @endforeach
     </tbody>

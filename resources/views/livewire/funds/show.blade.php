@@ -16,7 +16,11 @@ mount(function(Fund $fund){
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Funds') }} > {{ $fund->ref }}
+        <a href="{{ route('funds.index') }}" wire:navigate class="text-indigo-700">
+            {{ __('Funds') }}
+        </a>
+        >
+        <span>{{ $fund->ref }}</span>
     </h2>
 </x-slot>
 

@@ -20,7 +20,7 @@ use Spatie\Permission\Models\Role;
 
 Route::view('/', 'dashboard')->name('dashboard');
 
-Route::view('funds', 'funds.index')->name('funds.index');
+Volt::route('funds', 'funds.index')->name('funds.index');
 Volt::route('funds/{fund}', 'funds.show')->name('funds.show');
 
 Route::view('profile', 'profile')

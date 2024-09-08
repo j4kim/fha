@@ -1,13 +1,20 @@
 <?php
 
 use App\Models\Fund;
-use function Livewire\Volt\state;
+use function Livewire\Volt\{state, layout};
+
+layout("layouts.app");
 
 state([
     'funds' => Fund::all(),
 ]);
-
 ?>
+
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ __('Funds') }}
+    </h2>
+</x-slot>
 
 <table class="table">
     <thead>

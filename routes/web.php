@@ -17,10 +17,7 @@ use Spatie\Permission\Models\Role;
 |
 */
 
-Route::view('/', 'welcome');
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
+Route::view('/', 'dashboard')
     ->name('dashboard');
 
 Route::view('profile', 'profile')

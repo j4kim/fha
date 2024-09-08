@@ -16,13 +16,14 @@ class FundFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->lastName();
+        $name = fake()->unique()->lastName();
         $ref = strtoupper(substr($name, 0, 3));
         return [
             'ref' => $ref,
             'name' => $name,
             'description' => fake()->paragraph(),
-            'status' => fake()->randomElement(['archive', 'officiel', 'en cours', 'don', 'en attente'])
+            'status' => fake()->randomElement(['archive', 'officiel', 'en cours', 'don', 'en attente']),
+            'updated_at' => fake()->dateTimeThisYear(),
         ];
     }
 }

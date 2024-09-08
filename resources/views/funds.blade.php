@@ -5,5 +5,5 @@
         </h2>
     </x-slot>
 
-    Fonds ici
+    <livewire:funds.list />
 </x-app-layout>

@@ -43,22 +43,7 @@ $logout = function (Logout $logout) {
                     </x-slot>
 
                     <x-slot name="content">
-                        @auth
-                            <x-dropdown-link :href="route('profile')" wire:navigate>
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
-
-                            <!-- Authentication -->
-                            <button wire:click="logout" class="w-full text-start">
-                                <x-dropdown-link>
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </button>
-                        @else
-                            <x-responsive-nav-link :href="route('login')" wire:navigate>
-                                {{ __('Log in') }}
-                            </x-responsive-nav-link>
-                        @endauth
+                        <x-nav-settings link-component="dropdown-link"/>
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -79,29 +64,12 @@ $logout = function (Logout $logout) {
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <x-nav-links
             link-component="responsive-nav-link"
-             class="pt-2 pb-3 space-y-1"
+            class="pt-2 pb-3 space-y-1"
         />
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="mt-3 space-y-1">
-                @auth
-                    <x-responsive-nav-link :href="route('profile')" wire:navigate>
-                        {{ __('Profile') }}
-                    </x-responsive-nav-link>
-
-                    <!-- Authentication -->
-                    <button wire:click="logout" class="w-full text-start">
-                        <x-responsive-nav-link>
-                            {{ __('Log Out') }}
-                        </x-responsive-nav-link>
-                    </button>
-                @else
-                    <x-responsive-nav-link :href="route('login')" wire:navigate>
-                        {{ __('Log in') }}
-                    </x-responsive-nav-link>
-                @endauth
-            </div>
+            <x-nav-settings link-component="responsive-nav-link" class="mt-3 space-y-1"/>
         </div>
     </div>
 </nav>

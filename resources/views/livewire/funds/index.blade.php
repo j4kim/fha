@@ -26,12 +26,15 @@ $funds = computed(function () {
 </x-slot>
 
 <div>
-    <div class="mb-6">
+    <div class="mb-6 flex justify-between items-center">
         <x-text-input
             type="search"
             placeholder="search"
             wire:model.live.debounce.300ms="search"
         />
+        <x-primary-button :href="route('funds.create')" wire:navigate>
+            {{ __('New') }}
+        </x-primary-button>
     </div>
     <table class="table w-full">
         <thead>

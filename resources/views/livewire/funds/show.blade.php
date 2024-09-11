@@ -27,6 +27,9 @@ $deleteFund = function(){
         >
         <span>{{ $fund->ref }}</span>
     </h2>
+    <x-primary-button :href="route('funds.update', $fund->id)" wire:navigate>
+        {{ __('Update') }}
+    </x-primary-button>
 </x-slot>
 
 <div class="flex flex-col gap-4">

@@ -8,6 +8,8 @@ use Livewire\Form;
 
 class FundForm extends Form
 {
+    public ?Fund $fund;
+
     #[Validate('required|string|max:255')]
     public string $name = '';
 
@@ -24,5 +26,17 @@ class FundForm extends Form
         return Fund::create(
             array_merge($this->all(), ['status' => 'new'])
         );
+    }
+
+    public function setFund(Fund $fund)
+    {
+        $this->fund = $fund;
+        $this->fill($fund);
+    }
+
+    public function update()
+    {
+        $validated = $this->validate();
+        $this->fund->update($validated);
     }
 }

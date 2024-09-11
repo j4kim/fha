@@ -26,9 +26,7 @@ Volt::route('funds/{fund}', 'funds.show')->name('funds.show');
 Volt::route('funds/{fund}/update', 'funds.update')->name('funds.update');
 Volt::route('funds/{fund}/delete', 'funds.delete')->name('funds.delete');
 
-Route::get('funds/{fund}/lots/{lot}', function(int $fund, int $lot){
-    return "Lot $lot dans le fond $fund";
-})->name('lots.show');
+Volt::route('funds/{fund}/lots/{lot}', 'lots.show')->name('lots.show');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

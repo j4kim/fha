@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Lot extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function fund()
+    {
+        return $this->belongsTo(Fund::class);
+    }
 }

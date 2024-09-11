@@ -20,15 +20,11 @@ $submit = function () {
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <a href="{{ route('funds.index') }}" wire:navigate class="text-indigo-700">
-            {{ __('Funds') }}
-        </a>
-        >
-        <a href="{{ route('funds.show', $form->fund->id) }}" wire:navigate class="text-indigo-700">
-            {{ $form->fund->ref }}
-        </a>
-        >
-        <span>Update</span>
+        <x-breadcrumbs :items="[
+            ['text' => __('Funds'), 'href' => route('funds.index')],
+            ['text' => $form->fund->ref, 'href' => route('funds.show', $form->fund->id)],
+            ['text' => __('Update')],
+        ]" />
     </h2>
 </x-slot>
 

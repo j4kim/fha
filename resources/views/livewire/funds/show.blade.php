@@ -21,11 +21,10 @@ $deleteFund = function(){
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <a href="{{ route('funds.index') }}" wire:navigate class="text-indigo-700">
-            {{ __('Funds') }}
-        </a>
-        >
-        <span>{{ $fund->ref }}</span>
+        <x-breadcrumbs :items="[
+            ['text' => __('Funds'), 'href' => route('funds.index')],
+            ['text' => $fund->ref],
+        ]" />
     </h2>
     <x-primary-button :href="route('funds.update', $fund->id)" wire:navigate>
         {{ __('Update') }}

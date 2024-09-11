@@ -21,7 +21,7 @@ $funds = computed(function () {
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Funds') }}
+        <x-breadcrumbs :items="[['text' => __('Funds')]]" />
     </h2>
     <x-primary-button :href="route('funds.create')" wire:navigate>
         {{ __('New') }}

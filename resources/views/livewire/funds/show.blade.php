@@ -12,6 +12,11 @@ state([
 mount(function(Fund $fund){
     $this->fund = $fund;
 });
+
+$deleteFund = function(){
+    $this->fund->delete();
+    $this->redirect(route('funds.index'), navigate: true);
+}
 ?>
 
 <x-slot name="header">
@@ -28,4 +33,12 @@ mount(function(Fund $fund){
     <x-attr label="Ref" :value="$fund->ref" />
     <x-attr label="Name" :value="$fund->name" />
     <x-attr label="Description" :value="$fund->description" />
+    <div>
+        <x-danger-button
+            wire:confirm="Are you sure you want to delete this fund?"
+            wire:click="deleteFund"
+        >
+            {{ __('Delete') }}
+        </x-danger-button>
+    </div>
 </div>

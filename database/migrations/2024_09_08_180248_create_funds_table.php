@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('funds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->string('ref')->unique();
             $table->string('name');
             $table->text('description');

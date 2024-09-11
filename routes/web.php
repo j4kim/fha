@@ -24,6 +24,7 @@ Volt::route('funds', 'funds.index')->name('funds.index');
 Volt::route('funds/create', 'funds.create')->name('funds.create');
 Volt::route('funds/{fund}', 'funds.show')->name('funds.show');
 Volt::route('funds/{fund}/update', 'funds.update')->name('funds.update');
+Volt::route('funds/{fund}/delete', 'funds.delete')->name('funds.delete');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

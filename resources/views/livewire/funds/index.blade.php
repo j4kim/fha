@@ -23,6 +23,9 @@ $funds = computed(function () {
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         {{ __('Funds') }}
     </h2>
+    <x-primary-button :href="route('funds.create')" wire:navigate>
+        {{ __('New') }}
+    </x-primary-button>
 </x-slot>
 
 <div>
@@ -32,9 +35,6 @@ $funds = computed(function () {
             placeholder="search"
             wire:model.live.debounce.300ms="search"
         />
-        <x-primary-button :href="route('funds.create')" wire:navigate>
-            {{ __('New') }}
-        </x-primary-button>
     </div>
     <table class="table w-full">
         <thead>

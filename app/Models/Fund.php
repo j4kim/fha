@@ -11,4 +11,9 @@ class Fund extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    public function lots()
+    {
+        return $this->hasMany(Lot::class);
+    }
 }

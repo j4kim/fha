@@ -35,7 +35,7 @@ $deleteFund = function(){
 <div class="flex flex-col gap-4">
     <x-attr label="Ref" :value="$fund->ref" />
     <x-attr label="Name" :value="$fund->name" />
-    <x-attr label="Description" :value="$fund->description" />
+    <x-attr label="Description" :value="$fund->description" class="whitespace-pre-line"/>
     <div>
         <x-danger-button
             wire:confirm="Are you sure you want to delete this fund?"

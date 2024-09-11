@@ -13,7 +13,7 @@
 
     <div>
         <x-input-label for="description" :value="__('Description')" />
-        <x-text-input wire:model="form.description" id="description" name="description" type="text" class="mt-1 block w-full" required />
+        <x-text-input textarea rows="3" wire:model="form.description" id="description" name="description" class="mt-1 block w-full" required />
         <x-input-error class="mt-2" :messages="$errors->get('form.description')" />
     </div>
 

@@ -18,7 +18,7 @@ use Spatie\Permission\Models\Role;
 |
 */
 
-Route::view('/', 'dashboard')->name('dashboard');
+Volt::route('/', 'dashboard')->name('dashboard');
 
 Volt::route('funds', 'funds.index')->name('funds.index');
 Volt::route('funds/create', 'funds.create')->name('funds.create');
@@ -28,7 +28,7 @@ Volt::route('funds/{fund}/delete', 'funds.delete')->name('funds.delete');
 
 Volt::route('funds/{fund}/lots/{lot}', 'lots.show')->name('lots.show');
 
-Route::view('profile', 'profile')
+Volt::route('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 

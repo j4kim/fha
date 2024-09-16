@@ -16,10 +16,7 @@ mount(function(Fund $fund){
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="[
-            ['text' => __('Funds'), 'href' => route('funds.index')],
-            ['text' => $fund->ref],
-        ]" />
+        <x-breadcrumbs :items="['funds.index', $fund]" />
     </h2>
     <div class="grow"></div>
     <x-primary-button :href="route('funds.update', $fund->id)" wire:navigate>

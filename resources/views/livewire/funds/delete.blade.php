@@ -21,11 +21,7 @@ $delete = function(){
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="[
-            ['text' => __('Funds'), 'href' => route('funds.index')],
-            ['text' => $fund->ref, 'href' => route('funds.show', $fund->id)],
-            ['text' => __('Delete')],
-        ]" />
+        <x-breadcrumbs :items="['funds.index', $fund, 'Delete']" />
     </h2>
 </x-slot>
 

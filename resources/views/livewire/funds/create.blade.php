@@ -16,10 +16,7 @@ $submit = function () {
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="[
-            ['text' => __('Funds'), 'href' => route('funds.index')],
-            ['text' => __('New')],
-        ]" />
+        <x-breadcrumbs :items="['funds.index', 'New']"/>
     </h2>
 </x-slot>
 

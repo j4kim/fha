@@ -16,11 +16,7 @@ mount(function(Lot $lot){
 
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="[
-            ['text' => __('Funds'), 'href' => route('funds.index')],
-            ['text' => $lot->fund->ref, 'href' => route('funds.show', $lot->fund_id)],
-            ['text' => __('Lot') . ' ' . $lot->ref],
-        ]" />
+        <x-breadcrumbs :items="['funds.index', $lot->fund, $lot]" />
     </h2>
 </x-slot>
 

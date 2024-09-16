@@ -2,15 +2,7 @@
 
 <div class="flex gap-2 items-center">
     @foreach ($items as $item)
-        @isset($item['href'])
-            <a href="{{ $item['href'] }}" wire:navigate class="text-indigo-700">
-                {{ $item['text'] }}
-            </a>
-        @else
-            <span>
-                {{ $item['text'] }}
-            </span>
-        @endisset
+        <x-breadcrumb :item="$item"/>
 
         @unless($loop->last)
             <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

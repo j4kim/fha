@@ -9,7 +9,7 @@ $links = [
     ],
     [
         'href' => route('funds.index'),
-        'active' => request()->routeIs('funds.*'),
+        'active' => request()->is('funds*'),
         'content' => __('Funds'),
     ],
 ];

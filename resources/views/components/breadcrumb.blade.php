@@ -18,7 +18,10 @@ if (is_string($item)) {
 <a
     href="{{ $href }}"
     wire:navigate
-    @class(['text-indigo-700' => $href && $href !== request()->url()])
+    @class([
+        'text-xs sm:text-lg',
+        'text-indigo-700' => $href && $href !== request()->url()
+    ])
 >
     {{ __($text) }}
 </a>

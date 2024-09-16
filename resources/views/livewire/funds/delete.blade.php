@@ -20,9 +20,7 @@ $delete = function(){
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index', $fund, 'Delete']" />
-    </h2>
+    <x-breadcrumbs :items="['funds.index', $fund, 'Delete']" />
 </x-slot>
 
 <form wire:submit="delete">

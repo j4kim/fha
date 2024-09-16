@@ -15,19 +15,19 @@ mount(function(Fund $fund){
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index', $fund]" />
-    </h2>
-    <div class="grow"></div>
-    <x-primary-button :href="route('funds.update', $fund->id)" wire:navigate>
-        {{ __('Update') }}
-    </x-primary-button>
-    <x-danger-button :href="route('funds.delete', $fund->id)" wire:navigate>
-        {{ __('Delete') }}
-    </x-danger-button>
+    <x-breadcrumbs :items="['funds.index', $fund]" />
 </x-slot>
 
 <div class="flex flex-col gap-6">
+    <div class="flex gap-2 justify-end">
+        <x-primary-button :href="route('funds.update', $fund->id)" wire:navigate>
+            {{ __('Update') }}
+        </x-primary-button>
+        <x-danger-button :href="route('funds.delete', $fund->id)" wire:navigate>
+            {{ __('Delete') }}
+        </x-danger-button>
+    </div>
+
     <div class="flex flex-col gap-4">
         <x-attr label="Ref" :value="$fund->ref" />
         <x-attr label="Name" :value="$fund->name" />

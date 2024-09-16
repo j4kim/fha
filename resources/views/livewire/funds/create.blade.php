@@ -15,9 +15,7 @@ $submit = function () {
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index', 'New']"/>
-    </h2>
+    <x-breadcrumbs :items="['funds.index', 'New']"/>
 </x-slot>
 
 <x-fund-form />

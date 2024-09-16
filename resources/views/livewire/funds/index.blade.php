@@ -20,15 +20,15 @@ $funds = computed(function () {
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index']" />
-    </h2>
-    <x-primary-button :href="route('funds.create')" wire:navigate>
-        {{ __('New') }}
-    </x-primary-button>
+    <x-breadcrumbs :items="['funds.index']" />
 </x-slot>
 
 <div>
+    <div class="flex gap-2 justify-end">
+        <x-primary-button :href="route('funds.create')" wire:navigate>
+            {{ __('New') }}
+        </x-primary-button>
+    </div>
     <div class="mb-6 flex justify-between items-center">
         <x-text-input
             type="search"

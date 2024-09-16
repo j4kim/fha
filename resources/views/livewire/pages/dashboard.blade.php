@@ -22,7 +22,7 @@ state([
 
         <div>
             @foreach ($this->funds as $fund)
-                <a href="{{ route('funds.show', $fund->id) }}" class="block p-2 hover:bg-gray-100">
+                <a href="{{ route('funds.show', $fund->id) }}" class="block p-2 hover:bg-gray-100" wire:navigate>
                     <span>{{ $fund->ref }}</span>
                     <span class="font-medium">{{ $fund->name }}</span>
                 </a>

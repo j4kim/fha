@@ -28,11 +28,7 @@
                 {{ __('Profile') }}
             </x-dropdown-link>
 
-            <button wire:click="logout" class="w-full text-start">
-                <x-dropdown-link>
-                    {{ __('Log Out') }}
-                </x-dropdown-link>
-            </button>
+            <livewire:logout-button />
         @else
             <x-dropdown-link :href="route('login')" wire:navigate>
                 {{ __('Log in') }}

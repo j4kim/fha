@@ -20,4 +20,10 @@ $submit = function () {
     <x-breadcrumbs :items="['funds.index', $form->fund, 'Update']" />
 </x-slot>
 
+<x-slot name="menu">
+    <x-dropdown-link :href="route('funds.delete', $form->fund->id)" wire:navigate>
+        {{ __('Delete fund') }}
+    </x-dropdown-link>
+</x-slot>
+
 <x-fund-form />

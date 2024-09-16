@@ -12,11 +12,13 @@ if (is_string($item)) {
 } elseif (is_a($item, App\Models\Breadcrumbable::class)) {
     $text = $item->getTitle();
     $href = $item->getHref();
-} else {
-    $text = json_encode($item);
 }
 @endphp
 
-<a href="{{ $href }}" wire:navigate @class(['text-indigo-700' => $href])>
+<a
+    href="{{ $href }}"
+    wire:navigate
+    @class(['text-indigo-700' => $href && $href !== request()->url()])
+>
     {{ __($text) }}
 </a>

@@ -21,12 +21,13 @@ $funds = computed(function () {
     <x-breadcrumbs :items="['funds.index']" />
 </x-slot>
 
+<x-slot name="menu">
+    <x-dropdown-link :href="route('funds.create')" wire:navigate>
+        {{ __('New fund') }}
+    </x-dropdown-link>
+</x-slot>
+
 <div>
-    <div class="flex gap-2 justify-end">
-        <x-primary-button :href="route('funds.create')" wire:navigate>
-            {{ __('New') }}
-        </x-primary-button>
-    </div>
     <div class="mb-6 flex justify-between items-center">
         <x-text-input
             type="search"

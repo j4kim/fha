@@ -1,15 +1,3 @@
-<?php
-
-use App\Livewire\Actions\Logout;
-
-$logout = function (Logout $logout) {
-    $logout();
-
-    $this->redirect('/', navigate: true);
-};
-
-?>
-
 <x-dropdown align="right" width="48">
     <x-slot name="trigger">
         <button class="text-gray-500 hover:text-gray-700">
@@ -20,6 +8,11 @@ $logout = function (Logout $logout) {
     </x-slot>
 
     <x-slot name="content">
+        @if (!$slot->isEmpty())
+            {{ $slot }}
+            <div class="border-b"></div>
+        @endif
+
         <x-dropdown-link :href="route('dashboard')" wire:navigate>
             {{ __('Dashboard') }}
         </x-dropdown-link>
@@ -35,7 +28,6 @@ $logout = function (Logout $logout) {
                 {{ __('Profile') }}
             </x-dropdown-link>
 
-            <!-- Authentication -->
             <button wire:click="logout" class="w-full text-start">
                 <x-dropdown-link>
                     {{ __('Log Out') }}

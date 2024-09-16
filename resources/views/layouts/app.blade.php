@@ -22,7 +22,11 @@
                         {{ $header }}
                     @endif
                     <div class="grow"></div>
-                    <livewire:dropdown-menu />
+                    <x-dropdown-menu>
+                        @if (isset($menu))
+                            {{ $menu }}
+                        @endif
+                    </x-dropdown-menu>
                 </div>
             </header>
 

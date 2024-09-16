@@ -1,9 +1,7 @@
 <?php
 
 use App\Models\Lot;
-use function Livewire\Volt\{state, mount, layout};
-
-layout("layouts.app");
+use function Livewire\Volt\{state, mount};
 
 state([
     'lot'
@@ -15,9 +13,7 @@ mount(function(Lot $lot){
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index', $lot->fund, $lot]" />
-    </h2>
+    <x-breadcrumbs :items="['funds.index', $lot->fund, $lot]" />
 </x-slot>
 
 <div class="flex flex-col gap-6">

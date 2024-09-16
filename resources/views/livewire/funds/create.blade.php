@@ -1,9 +1,7 @@
 <?php
 
 use App\Livewire\Forms\FundForm;
-use function Livewire\Volt\{layout,form};
-
-layout("layouts.app");
+use function Livewire\Volt\{form};
 
 form(FundForm::class);
 
@@ -15,9 +13,7 @@ $submit = function () {
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index', 'New']"/>
-    </h2>
+    <x-breadcrumbs :items="['funds.index', 'New']"/>
 </x-slot>
 
 <x-fund-form />

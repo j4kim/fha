@@ -1,9 +1,7 @@
 <?php
 
 use App\Models\Fund;
-use function Livewire\Volt\{state, layout, computed};
-
-layout("layouts.app");
+use function Livewire\Volt\{state, computed};
 
 state(['search'])->url();
 
@@ -20,12 +18,13 @@ $funds = computed(function () {
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index']" />
-    </h2>
-    <x-primary-button :href="route('funds.create')" wire:navigate>
-        {{ __('New') }}
-    </x-primary-button>
+    <x-breadcrumbs :items="['funds.index']" />
+</x-slot>
+
+<x-slot name="menu">
+    <x-dropdown-link :href="route('funds.create')" wire:navigate>
+        {{ __('New fund') }}
+    </x-dropdown-link>
 </x-slot>
 
 <div>

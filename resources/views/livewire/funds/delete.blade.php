@@ -1,9 +1,7 @@
 <?php
 
 use App\Models\Fund;
-use function Livewire\Volt\{layout,state,mount};
-
-layout("layouts.app");
+use function Livewire\Volt\{state,mount};
 
 state([
     'fund'
@@ -20,9 +18,7 @@ $delete = function(){
 ?>
 
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <x-breadcrumbs :items="['funds.index', $fund, 'Delete']" />
-    </h2>
+    <x-breadcrumbs :items="['funds.index', $fund, 'Delete']" />
 </x-slot>
 
 <form wire:submit="delete">

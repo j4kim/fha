@@ -1,6 +1,6 @@
-@props(['label', 'value'])
+@props(['label', 'value', 'valueclass' => ''])
 
-<div>
+<div {{ $attributes }}>
     <div class="text-sm opacity-50">{{ $label }}</div>
-    <div {{ $attributes }}>{{ $value }}</div>
+    <div class="{{ $valueclass }}">{{ $value }}</div>
 </div>

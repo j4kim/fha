@@ -26,10 +26,10 @@ mount(function(Fund $fund){
 </x-slot>
 
 <div class="flex flex-col gap-6">
-    <div class="flex flex-col gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-6 gap-4">
         <x-attr label="Ref" :value="$fund->ref" />
         <x-attr label="Name" :value="$fund->name" />
-        <x-attr label="Description" :value="$fund->description" class="whitespace-pre-line"/>
+        <x-attr label="Description" :value="$fund->description" class="sm:col-span-4" valueclass="whitespace-pre-line"/>
     </div>
 
     <div class="flex flex-col gap-4">

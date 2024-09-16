@@ -1,7 +1,7 @@
 <x-dropdown align="right" width="48">
     <x-slot name="trigger">
-        <button class="text-gray-500 hover:text-gray-700">
-            <x-icons.menu class="h-4 w-4" />
+        <button class="text-gray-500 hover:text-gray-700 block">
+            <x-icons.menu class="h-5 sm:h-6" />
         </button>
     </x-slot>
 

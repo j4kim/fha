@@ -12,7 +12,7 @@ state([
     <x-breadcrumbs :items="['Dashboard']" />
 </x-slot>
 
-<div class="flex flex-col gap-6">
+<div class="block sm:grid grid-cols-2">
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg space-y-4">
         <header>
             <h2 class="text-lg font-medium text-gray-900">

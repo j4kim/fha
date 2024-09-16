@@ -1,5 +1,5 @@
 <x-slot name="header">
-    {{ __('Dashboard') }}
+    <x-breadcrumbs :items="['Dashboard']" />
 </x-slot>
 
 <div>

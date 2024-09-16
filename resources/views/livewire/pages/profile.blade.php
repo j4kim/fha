@@ -1,5 +1,5 @@
 <x-slot name="header">
-    {{ __('Profile') }}
+    <x-breadcrumbs :items="['Profile']" />
 </x-slot>
 
 <div class="py-12">

@@ -17,7 +17,7 @@ class Lot extends Model implements Breadcrumbable
 
     public function getTitle()
     {
-        return $this->ref;
+        return "Lot $this->ref";
     }
 
     public function getHref()

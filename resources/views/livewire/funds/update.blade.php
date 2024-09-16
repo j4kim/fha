@@ -2,9 +2,7 @@
 
 use App\Models\Fund;
 use App\Livewire\Forms\FundForm;
-use function Livewire\Volt\{layout,form,mount};
-
-layout("layouts.app");
+use function Livewire\Volt\{form,mount};
 
 form(FundForm::class);
 

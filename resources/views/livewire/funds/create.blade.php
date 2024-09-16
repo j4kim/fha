@@ -1,9 +1,7 @@
 <?php
 
 use App\Livewire\Forms\FundForm;
-use function Livewire\Volt\{layout,form};
-
-layout("layouts.app");
+use function Livewire\Volt\{form};
 
 form(FundForm::class);
 

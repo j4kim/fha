@@ -1,9 +1,7 @@
 <?php
 
 use App\Models\Fund;
-use function Livewire\Volt\{state, layout, computed};
-
-layout("layouts.app");
+use function Livewire\Volt\{state, computed};
 
 state(['search'])->url();
 

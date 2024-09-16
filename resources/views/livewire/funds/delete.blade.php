@@ -1,9 +1,7 @@
 <?php
 
 use App\Models\Fund;
-use function Livewire\Volt\{layout,state,mount};
-
-layout("layouts.app");
+use function Livewire\Volt\{state,mount};
 
 state([
     'fund'

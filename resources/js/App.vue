@@ -1,11 +1,6 @@
 <script setup>
 import ApplicationLogo from './ApplicationLogo.vue';
-import breadcrumbs from './breadcrumbs';
 import Breadcrumbs from './Breadcrumbs.vue';
-
-breadcrumbs.items = [
-    { text: 'Dashboard', href: '/dashboard' },
-];
 </script>
 
 <template>
@@ -24,7 +19,7 @@ breadcrumbs.items = [
         <!-- Page Content -->
         <main>
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 pb-36">
-                Content here
+                <RouterView />
             </div>
         </main>
     </div>

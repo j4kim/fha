@@ -20,6 +20,8 @@ use Spatie\Permission\Models\Role;
 
 Volt::route('/', 'pages.dashboard')->name('dashboard');
 
+Route::view('vue', 'vue-app');
+
 Volt::route('funds', 'pages.funds.index')->name('funds.index');
 Volt::route('funds/create', 'pages.funds.create')->name('funds.create');
 Volt::route('funds/{fund}', 'pages.funds.show')->name('funds.show');

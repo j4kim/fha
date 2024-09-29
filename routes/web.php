@@ -32,8 +32,8 @@ Volt::route('profile', 'pages.profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::get('{any}', function(){
+Route::get('{any}', function () {
     return view('vue-app');
-})->where('any', '.*');
+})->where('any', '^(?!api).*$');

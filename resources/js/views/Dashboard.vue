@@ -1,3 +1,22 @@
+<script setup>
+import axios from "axios";
+import { reactive } from "vue";
+
+const state = reactive({
+    funds: [],
+    loading: true,
+});
+
+axios
+    .get("/api/funds/recent")
+    .then((response) => {
+        state.funds = response.data;
+    })
+    .finally(() => {
+        state.loading = false;
+    });
+</script>
+
 <template>
     <div class="block sm:grid grid-cols-2">
         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg space-y-4">
@@ -8,7 +27,15 @@
             </header>
 
             <div>
-                Funds here
+                <p v-if="state.loading">Loading...</p>
+                <a
+                    :href="`funds/${fund.id}`"
+                    v-for="fund in state.funds"
+                    class="block p-2 hover:bg-gray-100"
+                >
+                    {{ fund.ref }}
+                    <span class="font-medium">{{ fund.name }}</span>
+                </a>
             </div>
 
             <p>

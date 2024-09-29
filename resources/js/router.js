@@ -6,7 +6,7 @@ const routes = [
     {
         path: "/dashboard",
         component: Dashboard,
-        meta: { breadcrumbs: [{ text: "Dashboard", href: "/dashboard" }] },
+        name: "Dashboard",
     },
 ];
 

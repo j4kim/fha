@@ -26,7 +26,7 @@ const state = reactive({
 </script>
 
 <template>
-    <div class="relative">
+    <div class="relative" @focusout="state.open = false">
         <div @click="state.open = !state.open">
             <slot name="trigger"></slot>
         </div>
@@ -35,8 +35,6 @@ const state = reactive({
             v-show="state.open"
             class="absolute z-50 mt-2 w-48 rounded-md shadow-lg"
             :class="alignmentClasses"
-            style="display: none"
-            @click="state.open = false"
         >
             <div
                 class="rounded-md ring-1 ring-black ring-opacity-5"

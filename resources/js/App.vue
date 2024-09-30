@@ -1,6 +1,7 @@
 <script setup>
 import ApplicationLogo from './ApplicationLogo.vue';
 import Breadcrumbs from './Breadcrumbs.vue';
+import DropdownMenu from './DropdownMenu.vue';
 </script>
 
 <template>
@@ -13,6 +14,8 @@ import Breadcrumbs from './Breadcrumbs.vue';
                     <ApplicationLogo class="block h-7 sm:h-9 w-auto fill-current text-gray-800" />
                 </a>
                 <Breadcrumbs />
+                <div class="grow"></div>
+                <DropdownMenu />
             </div>
         </header>
 

@@ -18,17 +18,17 @@ use Spatie\Permission\Models\Role;
 |
 */
 
-Volt::route('/', 'pages.dashboard')->name('dashboard');
+Volt::route('_/', 'pages.dashboard')->name('dashboard');
 
-Volt::route('funds', 'pages.funds.index')->name('funds.index');
-Volt::route('funds/create', 'pages.funds.create')->name('funds.create');
-Volt::route('funds/{fund}', 'pages.funds.show')->name('funds.show');
-Volt::route('funds/{fund}/update', 'pages.funds.update')->name('funds.update');
-Volt::route('funds/{fund}/delete', 'pages.funds.delete')->name('funds.delete');
+Volt::route('_/funds', 'pages.funds.index')->name('funds.index');
+Volt::route('_/funds/create', 'pages.funds.create')->name('funds.create');
+Volt::route('_/funds/{fund}', 'pages.funds.show')->name('funds.show');
+Volt::route('_/funds/{fund}/update', 'pages.funds.update')->name('funds.update');
+Volt::route('_/funds/{fund}/delete', 'pages.funds.delete')->name('funds.delete');
 
-Volt::route('funds/{fund}/lots/{lot}', 'pages.lots.show')->name('lots.show');
+Volt::route('_/funds/{fund}/lots/{lot}', 'pages.lots.show')->name('lots.show');
 
-Volt::route('profile', 'pages.profile')
+Volt::route('_/profile', 'pages.profile')
     ->middleware(['auth'])
     ->name('profile');
 

@@ -22,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('funds/recent', function () {
     return Fund::orderBy('updated_at', 'desc')->limit(5)->get();
 });
+
+Route::get('funds', function () {
+    return Fund::all();
+});

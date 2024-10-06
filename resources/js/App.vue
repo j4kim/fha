@@ -2,7 +2,6 @@
 import ApplicationLogo from "./ApplicationLogo.vue";
 import Breadcrumbs from "./Breadcrumbs.vue";
 import DropdownMenu from "./DropdownMenu.vue";
-import store from "./store";
 </script>
 
 <template>

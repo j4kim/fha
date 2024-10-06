@@ -2,6 +2,7 @@
 import ApplicationLogo from "./ApplicationLogo.vue";
 import Breadcrumbs from "./Breadcrumbs.vue";
 import DropdownMenu from "./DropdownMenu.vue";
+import store from "./store";
 </script>
 
 <template>
@@ -25,17 +26,10 @@ import DropdownMenu from "./DropdownMenu.vue";
         <!-- Page Content -->
         <main>
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 pb-36">
-                <RouterView v-slot="{ Component }">
-                    <template v-if="Component">
-                        <Suspense>
-                            <!-- main content -->
-                            <component :is="Component"></component>
-
-                            <!-- loading state -->
-                            <template #fallback> Loading... </template>
-                        </Suspense>
-                    </template>
-                </RouterView>
+                <div v-if="store.loading">Chargement...</div>
+                <Suspense>
+                    <RouterView />
+                </Suspense>
             </div>
         </main>
     </div>

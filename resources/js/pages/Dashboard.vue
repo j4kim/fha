@@ -1,11 +1,14 @@
 <script setup>
 import axios from "axios";
 import { reactive } from "vue";
+import store from "../store";
 
 const state = reactive({
     funds: [],
     loading: true,
 });
+
+store.breadcrumbs = [{ text: "Dashboard", route: "/" }];
 
 axios
     .get("/api/funds/recent")

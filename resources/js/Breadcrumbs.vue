@@ -1,29 +1,23 @@
 <script setup>
 import { useRoute } from "vue-router";
 import ChevronIcon from "./ChevronIcon.vue";
-import { computed } from "vue";
-
-const route = useRoute();
-
-function getBreadcrumbs(route) {
-    if (!route) return [];
-    return [...getBreadcrumbs(route.meta?.parent), route];
-}
-
-const breadcrumbs = computed(() => getBreadcrumbs(route));
+import store from "./store";
 </script>
 
 <template>
     <div class="flex gap-1 sm:gap-2 gap-y-0 items-center flex-wrap">
-        <template v-for="(bcRoute, i) in breadcrumbs">
+        <template v-for="(breadcrumb, i) in store.breadcrumbs">
             <RouterLink
-                :to="bcRoute"
+                :to="breadcrumb.route"
                 class="text-sm sm:text-lg text-indigo-700"
             >
-                {{ bcRoute.name }}
+                {{ breadcrumb.text }}
             </RouterLink>
 
-            <ChevronIcon v-if="i < breadcrumbs.length - 1" class="h-3 sm:h-4" />
+            <ChevronIcon
+                v-if="i < store.breadcrumbs.length - 1"
+                class="h-3 sm:h-4"
+            />
         </template>
     </div>
 </template>

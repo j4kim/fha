@@ -3,6 +3,7 @@ import axios from "axios";
 import { reactive } from "vue";
 import { useRoute } from "vue-router";
 import Attr from "../../Attr.vue";
+import store from "../../store";
 
 const route = useRoute();
 
@@ -15,6 +16,7 @@ axios
     .get(`/api/funds/${route.params.id}`)
     .then((response) => {
         state.fund = response.data;
+        store.breadcrumbs = route.meta.getBreadcrumbs(state.fund);
     })
     .finally(() => {
         state.loading = false;

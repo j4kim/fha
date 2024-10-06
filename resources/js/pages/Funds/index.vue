@@ -2,12 +2,15 @@
 import axios from "axios";
 import { reactive } from "vue";
 import router from "../../router";
+import store from "../../store";
 
 const state = reactive({
     search: "",
     funds: [],
     loading: true,
 });
+
+store.breadcrumbs = [{ text: "Funds", route: "/funds/" }];
 
 axios
     .get("/api/funds")

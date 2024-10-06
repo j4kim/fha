@@ -15,18 +15,27 @@ const routes = [
                 component: () => import("./pages/Funds/Index.vue"),
             },
             {
-                path: ":id",
-                component: () => import("./pages/Funds/Show.vue"),
-                name: "FundsShow",
-                props: true,
-                meta: {
-                    getBreadcrumbs: (fund) => {
-                        return [
-                            { text: "Funds", route: "/funds/" },
-                            { text: fund.ref, route: `/funds/${fund.id}` },
-                        ];
+                path: ":fundId",
+                children: [
+                    {
+                        path: "",
+                        component: () => import("./pages/Funds/Show.vue"),
+                        name: "FundsShow",
+                        props: true,
+                        meta: {
+                            getBreadcrumbs: (fund) => [
+                                { text: "Funds", route: "/funds/" },
+                                { text: fund.ref, route: `/funds/${fund.id}` },
+                            ],
+                        },
                     },
-                },
+                    {
+                        path: "lots/:lotId",
+                        component: () => import("./pages/Lots/Show.vue"),
+                        name: "LotsShow",
+                        props: true,
+                    },
+                ],
             },
         ],
     },

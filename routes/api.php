@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Fund;
+use App\Models\Lot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,8 @@ Route::get('funds', function () {
 
 Route::get('funds/{fund}', function (Fund $fund) {
     return $fund->load('lots');
+});
+
+Route::get('lots/{lot}', function (Lot $lot) {
+    return $lot->load('fund');
 });

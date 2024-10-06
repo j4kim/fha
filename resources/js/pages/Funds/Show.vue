@@ -4,6 +4,7 @@ import { reactive } from "vue";
 import { useRoute } from "vue-router";
 import Attr from "../../Attr.vue";
 import store from "../../store";
+import router from "../../router";
 
 const route = useRoute();
 
@@ -13,7 +14,7 @@ const state = reactive({
 });
 
 axios
-    .get(`/api/funds/${route.params.id}`)
+    .get(`/api/funds/${route.params.fundId}`)
     .then((response) => {
         state.fund = response.data;
         store.breadcrumbs = route.meta.getBreadcrumbs(state.fund);
@@ -52,7 +53,13 @@ axios
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="cursor-pointer" v-for="lot in state.fund.lots">
+                    <tr
+                        class="cursor-pointer"
+                        v-for="lot in state.fund.lots"
+                        @click="
+                            router.push(`/funds/${lot.fund_id}/lots/${lot.id}`)
+                        "
+                    >
                         <td>{{ lot.id }}</td>
                         <td>{{ lot.ref }}</td>
                         <td>{{ lot.name }}</td>

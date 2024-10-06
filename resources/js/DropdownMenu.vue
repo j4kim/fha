@@ -3,6 +3,8 @@ import Dropdown from "./Dropdown.vue";
 import DropdownLink from "./DropdownLink.vue";
 import MenuIcon from "./MenuIcon.vue";
 import router from "./router";
+
+const user = window.user;
 </script>
 
 <template>
@@ -24,10 +26,10 @@ import router from "./router";
 
         <div class="border-b"></div>
 
-        <DropdownLink href="/_/profile"> Profile </DropdownLink>
+        <DropdownLink v-if="user" href="/_/profile"> Profile </DropdownLink>
 
-        <DropdownLink href="/logout"> Log out </DropdownLink>
+        <DropdownLink v-if="user" href="/logout"> Log out </DropdownLink>
 
-        <DropdownLink href="/login"> Log in </DropdownLink>
+        <DropdownLink v-if="!user" href="/login"> Log in </DropdownLink>
     </Dropdown>
 </template>

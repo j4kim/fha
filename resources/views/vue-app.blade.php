@@ -8,6 +8,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script>
+        window.user = {{ Js::from(auth()->user()) }}
+    </script>
     @vite('resources/js/app.js')
 </head>
 

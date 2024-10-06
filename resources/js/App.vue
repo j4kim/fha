@@ -1,7 +1,8 @@
 <script setup>
-import ApplicationLogo from './ApplicationLogo.vue';
-import Breadcrumbs from './Breadcrumbs.vue';
-import DropdownMenu from './DropdownMenu.vue';
+import ApplicationLogo from "./ApplicationLogo.vue";
+import Breadcrumbs from "./Breadcrumbs.vue";
+import DropdownMenu from "./DropdownMenu.vue";
+import store from "./store";
 </script>
 
 <template>
@@ -9,10 +10,13 @@ import DropdownMenu from './DropdownMenu.vue';
         <!-- Page Heading -->
         <header class="bg-white shadow">
             <div
-                class="max-w-7xl mx-auto min-h-12 sm:min-h-20 px-4 sm:px-6 lg:px-8 flex items-center gap-4 sm:gap-6 lg:gap-8">
-                <a href="/">
-                    <ApplicationLogo class="block h-7 sm:h-9 w-auto fill-current text-gray-800" />
-                </a>
+                class="max-w-7xl mx-auto min-h-12 sm:min-h-20 px-4 sm:px-6 lg:px-8 flex items-center gap-4 sm:gap-6 lg:gap-8"
+            >
+                <RouterLink to="/">
+                    <ApplicationLogo
+                        class="block h-7 sm:h-9 w-auto fill-current text-gray-800"
+                    />
+                </RouterLink>
                 <Breadcrumbs />
                 <div class="grow"></div>
                 <DropdownMenu />
@@ -22,7 +26,10 @@ import DropdownMenu from './DropdownMenu.vue';
         <!-- Page Content -->
         <main>
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 pb-36">
-                <RouterView />
+                <div v-if="store.loading">Chargement...</div>
+                <Suspense>
+                    <RouterView />
+                </Suspense>
             </div>
         </main>
     </div>

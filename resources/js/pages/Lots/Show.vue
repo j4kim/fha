@@ -1,31 +1,25 @@
 <script setup>
-import axios from "axios";
 import { reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import Attr from "../../Attr.vue";
 import store from "../../store";
+import { get } from "../../api";
 
 const route = useRoute();
 const router = useRouter();
 
 const state = reactive({
     lot: {},
-    loading: true,
 });
 
-axios
-    .get(`/api/lots/${route.params.lotId}`)
-    .then((response) => {
-        state.lot = response.data;
-        const fundRoute = router.resolve(`/funds/${state.lot.fund.id}`);
-        store.breadcrumbs = [
-            ...fundRoute.meta.getBreadcrumbs(state.lot.fund),
-            { text: `Lot ${state.lot.ref}`, route: `${state.lot.id}` },
-        ];
-    })
-    .finally(() => {
-        state.loading = false;
-    });
+state.lot = await get(`/api/lots/${route.params.lotId}`);
+
+const fundRoute = router.resolve(`/funds/${state.lot.fund.id}`);
+
+store.breadcrumbs = [
+    ...fundRoute.meta.getBreadcrumbs(state.lot.fund),
+    { text: `Lot ${state.lot.ref}`, route: `${state.lot.id}` },
+];
 </script>
 
 <template>

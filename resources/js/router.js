@@ -12,7 +12,7 @@ const routes = [
             {
                 path: "",
                 name: "FundsIndex",
-                component: () => import("./pages/Funds/index.vue"),
+                component: () => import("./pages/Funds/Index.vue"),
             },
             {
                 path: ":id",

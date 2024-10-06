@@ -22,20 +22,20 @@ state.funds = await get("/api/funds/recent");
             </header>
 
             <div>
-                <a
-                    :href="`funds/${fund.id}`"
+                <RouterLink
+                    :to="`funds/${fund.id}`"
                     v-for="fund in state.funds"
                     class="block p-2 hover:bg-gray-100"
                 >
                     {{ fund.ref }}
                     <span class="font-medium">{{ fund.name }}</span>
-                </a>
+                </RouterLink>
             </div>
 
             <p>
-                <a href="/funds" class="text-indigo-700 hover:underline">
+                <RouterLink to="/funds" class="text-indigo-700 hover:underline">
                     View all funds
-                </a>
+                </RouterLink>
             </p>
         </div>
     </div>

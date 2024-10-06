@@ -12,11 +12,11 @@ import store from "./store";
             <div
                 class="max-w-7xl mx-auto min-h-12 sm:min-h-20 px-4 sm:px-6 lg:px-8 flex items-center gap-4 sm:gap-6 lg:gap-8"
             >
-                <a href="/">
+                <RouterLink to="/">
                     <ApplicationLogo
                         class="block h-7 sm:h-9 w-auto fill-current text-gray-800"
                     />
-                </a>
+                </RouterLink>
                 <Breadcrumbs />
                 <div class="grow"></div>
                 <DropdownMenu />

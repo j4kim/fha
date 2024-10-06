@@ -2,6 +2,7 @@
 import Dropdown from "./Dropdown.vue";
 import DropdownLink from "./DropdownLink.vue";
 import MenuIcon from "./MenuIcon.vue";
+import router from "./router";
 </script>
 
 <template>
@@ -17,16 +18,16 @@ import MenuIcon from "./MenuIcon.vue";
             <div class="border-b"></div>
         </template>
 
-        <DropdownLink> Dashboard </DropdownLink>
+        <DropdownLink @click="router.push('/')"> Dashboard </DropdownLink>
 
-        <DropdownLink> Funds </DropdownLink>
+        <DropdownLink @click="router.push('/funds')"> Funds </DropdownLink>
 
         <div class="border-b"></div>
 
-        <DropdownLink> Profile </DropdownLink>
+        <DropdownLink href="/_/profile"> Profile </DropdownLink>
 
-        <DropdownLink> Log out </DropdownLink>
+        <DropdownLink href="/logout"> Log out </DropdownLink>
 
-        <DropdownLink> Log in </DropdownLink>
+        <DropdownLink href="/login"> Log in </DropdownLink>
     </Dropdown>
 </template>

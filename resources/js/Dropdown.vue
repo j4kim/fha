@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from "vue";
+import router from "./router";
 
 const props = defineProps({
     align: {
@@ -23,10 +24,12 @@ if (props.align === "left") {
 const state = reactive({
     open: false,
 });
+
+router.afterEach(() => (state.open = false));
 </script>
 
 <template>
-    <div class="relative" @focusout="state.open = false">
+    <div class="relative">
         <div @click="state.open = !state.open">
             <slot name="trigger"></slot>
         </div>

@@ -1,24 +1,28 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-import Dashboard from "./pages/Dashboard.vue";
-import Funds from "./pages/Funds/index.vue";
+const Dashboard = {
+    path: "/",
+    component: () => import("./pages/Dashboard.vue"),
+    name: "Dashboard",
+};
 
-const routes = [
-    {
-        path: "/",
-        component: Dashboard,
-        name: "Dashboard",
-    },
-    {
-        path: "/funds/",
-        component: Funds,
-        name: "Funds",
-    },
-];
+const FundsIndex = {
+    path: "/funds/",
+    component: () => import("./pages/Funds/index.vue"),
+    name: "FundsIndex",
+};
+
+const FundsShow = {
+    path: "/funds/:id",
+    component: () => import("./pages/Funds/Show.vue"),
+    name: "FundsShow",
+    props: true,
+    meta: { parent: FundsIndex },
+};
 
 const router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes: [Dashboard, FundsIndex, FundsShow],
 });
 
 export default router;

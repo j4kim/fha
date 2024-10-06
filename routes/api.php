@@ -26,3 +26,7 @@ Route::get('funds/recent', function () {
 Route::get('funds', function () {
     return Fund::all();
 });
+
+Route::get('funds/{fund}', function (Fund $fund) {
+    return $fund->load('lots');
+});

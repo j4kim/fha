@@ -7,7 +7,7 @@ const route = useRoute();
 
 function getBreadcrumbs(route) {
     if (!route) return [];
-    return [...getBreadcrumbs(route.meta.parent), route];
+    return [...getBreadcrumbs(route.meta?.parent), route];
 }
 
 const breadcrumbs = computed(() => getBreadcrumbs(route));

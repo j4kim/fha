@@ -1,6 +1,7 @@
 <script setup>
 import axios from "axios";
 import { reactive } from "vue";
+import router from "../../router";
 
 const state = reactive({
     search: "",
@@ -39,7 +40,11 @@ axios
             </tr>
         </thead>
         <tbody>
-            <tr v-for="fund in state.funds" class="cursor-pointer">
+            <tr
+                class="cursor-pointer"
+                v-for="fund in state.funds"
+                @click="router.push(`/funds/${fund.id}`)"
+            >
                 <td>{{ fund.id }}</td>
                 <td>{{ fund.ref }}</td>
                 <td>{{ fund.name }}</td>

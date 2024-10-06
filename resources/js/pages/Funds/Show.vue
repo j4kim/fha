@@ -1,27 +1,19 @@
 <script setup>
-import axios from "axios";
 import { reactive } from "vue";
 import { useRoute } from "vue-router";
 import Attr from "../../Attr.vue";
 import store from "../../store";
 import router from "../../router";
+import { get } from "../../api";
 
 const route = useRoute();
 
 const state = reactive({
     fund: {},
-    loading: true,
 });
 
-axios
-    .get(`/api/funds/${route.params.fundId}`)
-    .then((response) => {
-        state.fund = response.data;
-        store.breadcrumbs = route.meta.getBreadcrumbs(state.fund);
-    })
-    .finally(() => {
-        state.loading = false;
-    });
+state.fund = await get(`/api/funds/${route.params.fundId}`);
+store.breadcrumbs = route.meta.getBreadcrumbs(state.fund);
 </script>
 
 <template>

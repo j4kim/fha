@@ -1,25 +1,17 @@
 <script setup>
-import axios from "axios";
 import { reactive } from "vue";
 import router from "../../router";
 import store from "../../store";
+import { get } from "../../api";
 
 const state = reactive({
     search: "",
     funds: [],
-    loading: true,
 });
 
 store.breadcrumbs = [{ text: "Funds", route: "/funds/" }];
 
-axios
-    .get("/api/funds")
-    .then((response) => {
-        state.funds = response.data;
-    })
-    .finally(() => {
-        state.loading = false;
-    });
+state.funds = await get("/api/funds");
 </script>
 
 <template>
@@ -61,5 +53,4 @@ axios
             </tr>
         </tbody>
     </table>
-    <p v-if="state.loading">Chargement...</p>
 </template>

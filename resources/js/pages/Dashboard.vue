@@ -1,23 +1,15 @@
 <script setup>
-import axios from "axios";
 import { reactive } from "vue";
 import store from "../store";
+import { get } from "../api";
 
 const state = reactive({
     funds: [],
-    loading: true,
 });
 
 store.breadcrumbs = [{ text: "Dashboard", route: "/" }];
 
-axios
-    .get("/api/funds/recent")
-    .then((response) => {
-        state.funds = response.data;
-    })
-    .finally(() => {
-        state.loading = false;
-    });
+state.funds = await get("/api/funds/recent");
 </script>
 
 <template>
@@ -30,7 +22,6 @@ axios
             </header>
 
             <div>
-                <p v-if="state.loading">Loading...</p>
                 <a
                     :href="`funds/${fund.id}`"
                     v-for="fund in state.funds"

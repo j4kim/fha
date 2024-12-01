@@ -13,8 +13,8 @@ const form = {
 };
 
 async function submit() {
-    await post("/api/funds", form);
-    router.push("/funds/");
+    const fund = await post("/api/funds", form);
+    router.push(`/funds/${fund.id}`);
 }
 </script>
 

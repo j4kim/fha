@@ -3,6 +3,7 @@ import { reactive } from "vue";
 import router from "../../router";
 import store from "../../store";
 import { get } from "../../api";
+import { watchDebounced } from "@vueuse/core";
 
 const state = reactive({
     search: "",
@@ -11,7 +12,13 @@ const state = reactive({
 
 store.breadcrumbs = [{ text: "Funds", route: "/funds/" }];
 
-state.funds = await get("/api/funds");
+async function fetchFunds() {
+    state.funds = await get(`/api/funds?search=${state.search}`);
+}
+
+fetchFunds();
+
+watchDebounced(() => state.search, fetchFunds, { debounce: 500 });
 </script>
 
 <template>

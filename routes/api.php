@@ -3,6 +3,7 @@
 use App\Models\Fund;
 use App\Models\Lot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +25,15 @@ Route::get('funds/recent', function () {
     return Fund::orderBy('updated_at', 'desc')->limit(5)->get();
 });
 
-Route::get('funds', function () {
-    return Fund::all();
+Route::get('funds', function (Request $request) {
+    $search = strtolower($request->search);
+    $query = Fund::query();
+    if ($search) {
+        $query->where(DB::raw('LOWER(name)'), 'like', "%$search%")
+            ->orWhere(DB::raw('LOWER(description)'), 'like', "%$search%")
+            ->orWhere(DB::raw('LOWER(ref)'), 'like', "%$search%");
+    }
+    return $query->get();
 });
 
 Route::get('funds/{fund}', function (Fund $fund) {

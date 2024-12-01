@@ -32,6 +32,16 @@ const routes = [
                                 { text: "Funds", route: "/funds/" },
                                 { text: fund.ref, route: `/funds/${fund.id}` },
                             ],
+                            getMenu: (fund) => [
+                                {
+                                    text: "Update fund",
+                                    route: `/funds/${fund.id}/update`,
+                                },
+                                {
+                                    text: "Delete fund",
+                                    route: `/funds/${fund.id}/delete`,
+                                },
+                            ],
                         },
                     },
                     {

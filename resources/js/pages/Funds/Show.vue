@@ -14,6 +14,7 @@ const state = reactive({
 
 state.fund = await get(`/api/funds/${route.params.fundId}`);
 store.breadcrumbs = route.meta.getBreadcrumbs(state.fund);
+store.menu = route.meta.getMenu(state.fund);
 </script>
 
 <template>

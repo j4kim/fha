@@ -7,9 +7,10 @@ const state = reactive({
     funds: [],
 });
 
-store.breadcrumbs = [{ text: "Dashboard", route: "/" }];
-
 state.funds = await get("/api/funds/recent");
+
+store.breadcrumbs = [{ text: "Dashboard" }];
+store.menu = [];
 </script>
 
 <template>

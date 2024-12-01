@@ -1,12 +1,11 @@
 <script setup>
 import { reactive } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import Attr from "../../components/Attr.vue";
 import store from "../../store";
 import { get } from "../../api";
 
 const route = useRoute();
-const router = useRouter();
 
 const state = reactive({
     lot: {},
@@ -14,12 +13,12 @@ const state = reactive({
 
 state.lot = await get(`/api/lots/${route.params.lotId}`);
 
-const fundRoute = router.resolve(`/funds/${state.lot.fund.id}`);
-
 store.breadcrumbs = [
-    ...fundRoute.meta.getBreadcrumbs(state.lot.fund),
-    { text: `Lot ${state.lot.ref}`, route: `${state.lot.id}` },
+    { text: "Funds", route: "/funds/" },
+    { text: state.lot.fund.ref, route: `/funds/${state.lot.fund.id}` },
+    { text: `Lot ${state.lot.ref}` },
 ];
+store.menu = [];
 </script>
 
 <template>

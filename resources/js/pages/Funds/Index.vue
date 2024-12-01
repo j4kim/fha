@@ -10,8 +10,6 @@ const state = reactive({
     funds: [],
 });
 
-store.breadcrumbs = [{ text: "Funds", route: "/funds/" }];
-
 async function fetchFunds() {
     state.funds = await get(`/api/funds?search=${state.search}`);
 }
@@ -20,6 +18,7 @@ fetchFunds();
 
 watchDebounced(() => state.search, fetchFunds, { debounce: 500 });
 
+store.breadcrumbs = [{ text: "Funds" }];
 store.menu = [{ text: "New fund", route: "/funds/create" }];
 </script>
 

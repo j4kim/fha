@@ -12,13 +12,18 @@ const state = reactive({
 });
 
 state.fund = await get(`/api/funds/${route.params.fundId}`);
-store.breadcrumbs = route.meta.getBreadcrumbs(state.fund);
-store.menu = [];
 
 async function submit() {
     await api(`/api/funds/${state.fund.id}`, "delete");
     router.push(`/funds/`);
 }
+
+store.breadcrumbs = [
+    { text: "Funds", route: "/funds/" },
+    { text: state.fund.ref, route: `/funds/${state.fund.id}` },
+    { text: "Delete" },
+];
+store.menu = [];
 </script>
 
 <template>

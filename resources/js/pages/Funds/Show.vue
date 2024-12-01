@@ -12,7 +12,7 @@ const state = reactive({
     fund: {},
 });
 
-state.fund = await get(`/api/funds/${route.params.fundId}`);
+state.fund = await get(`/api/funds/${route.params.fundId}?with=lots`);
 store.breadcrumbs = route.meta.getBreadcrumbs(state.fund);
 store.menu = route.meta.getMenu(state.fund);
 </script>

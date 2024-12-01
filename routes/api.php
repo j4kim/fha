@@ -40,8 +40,11 @@ Route::post('funds', function (Request $request) {
     return Fund::create($request->merge(['status' => 'new'])->all());
 });
 
-Route::get('funds/{fund}', function (Fund $fund) {
-    return $fund->load('lots');
+Route::get('funds/{fund}', function (Fund $fund, Request $request) {
+    if ($request->with) {
+        $fund->load($request->with);
+    }
+    return $fund;
 });
 
 Route::put('funds/{fund}', function (Fund $fund, Request $request) {

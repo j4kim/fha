@@ -12,6 +12,10 @@ class Fund extends Model implements Breadcrumbable
 
     protected $guarded = [];
 
+    protected $casts = [
+        'updated_at' => 'datetime:d.m.Y H:i',
+    ];
+
     public function lots()
     {
         return $this->hasMany(Lot::class);

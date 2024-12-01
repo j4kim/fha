@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,9 +13,10 @@ class Fund extends Model implements Breadcrumbable
 
     protected $guarded = [];
 
-    protected $casts = [
-        'updated_at' => 'datetime:d.m.Y H:i',
-    ];
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('d.m.y H:i');
+    }
 
     public function lots()
     {

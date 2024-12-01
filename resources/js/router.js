@@ -15,6 +15,11 @@ const routes = [
                 component: () => import("./pages/Funds/Index.vue"),
             },
             {
+                path: "create",
+                name: "FundsCreate",
+                component: () => import("./pages/Funds/Create.vue"),
+            },
+            {
                 path: ":fundId",
                 children: [
                     {

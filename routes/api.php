@@ -36,6 +36,10 @@ Route::get('funds', function (Request $request) {
     return $query->get();
 });
 
+Route::post('funds', function (Request $request) {
+    return Fund::create($request->merge(['status' => 'new'])->all());
+});
+
 Route::get('funds/{fund}', function (Fund $fund) {
     return $fund->load('lots');
 });

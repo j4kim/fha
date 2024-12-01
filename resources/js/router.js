@@ -62,6 +62,18 @@ const routes = [
                         },
                     },
                     {
+                        path: "delete",
+                        component: () => import("./pages/Funds/Delete.vue"),
+                        name: "FundsDelete",
+                        meta: {
+                            getBreadcrumbs: (fund) => [
+                                { text: "Funds", route: "/funds/" },
+                                { text: fund.ref, route: `/funds/${fund.id}` },
+                                { text: "Delete" },
+                            ],
+                        },
+                    },
+                    {
                         path: "lots/:lotId",
                         component: () => import("./pages/Lots/Show.vue"),
                         name: "LotsShow",

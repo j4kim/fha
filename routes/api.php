@@ -48,6 +48,10 @@ Route::put('funds/{fund}', function (Fund $fund, Request $request) {
     return $fund->update($request->all());
 });
 
+Route::delete('funds/{fund}', function (Fund $fund) {
+    return $fund->delete();
+});
+
 Route::get('lots/{lot}', function (Lot $lot) {
     return $lot->load('fund');
 });

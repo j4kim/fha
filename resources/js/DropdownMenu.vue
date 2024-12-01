@@ -3,6 +3,7 @@ import Dropdown from "./Dropdown.vue";
 import DropdownLink from "./DropdownLink.vue";
 import MenuIcon from "./MenuIcon.vue";
 import router from "./router";
+import store from "./store";
 
 const user = window.user;
 </script>
@@ -15,8 +16,13 @@ const user = window.user;
             </button>
         </template>
 
-        <template v-if="$slots.default">
-            <slot></slot>
+        <template v-if="store.menu">
+            <DropdownLink
+                v-for="item in store.menu"
+                @click="router.push(item.route)"
+            >
+                {{ item.text }}
+            </DropdownLink>
             <div class="border-b"></div>
         </template>
 

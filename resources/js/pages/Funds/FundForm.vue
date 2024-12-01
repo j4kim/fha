@@ -48,6 +48,7 @@ const props = defineProps({
                 v-model="form.description"
                 class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                 required
+                rows="3"
             ></textarea>
         </div>
 

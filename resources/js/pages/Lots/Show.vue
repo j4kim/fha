@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import Attr from "../../Attr.vue";
+import Attr from "../../components/Attr.vue";
 import store from "../../store";
 import { get } from "../../api";
 

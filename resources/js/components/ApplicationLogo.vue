@@ -1,5 +1,5 @@
 <script setup>
-import store from "./store";
+import store from "../store";
 
 function getAttrs(i) {
     const width = 300 - i * 60;

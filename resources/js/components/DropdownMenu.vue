@@ -1,9 +1,9 @@
 <script setup>
 import Dropdown from "./Dropdown.vue";
 import DropdownLink from "./DropdownLink.vue";
-import MenuIcon from "./MenuIcon.vue";
-import router from "./router";
-import store from "./store";
+import MenuIcon from "../icons/MenuIcon.vue";
+import router from "../router";
+import store from "../store";
 
 const user = window.user;
 </script>

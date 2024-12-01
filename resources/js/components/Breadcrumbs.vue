@@ -1,6 +1,6 @@
 <script setup>
-import ChevronIcon from "./ChevronIcon.vue";
-import store from "./store";
+import ChevronIcon from "../icons/ChevronIcon.vue";
+import store from "../store";
 </script>
 
 <template>

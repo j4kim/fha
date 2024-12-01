@@ -11,11 +11,11 @@
             <div class="border-b"></div>
         @endif
 
-        <x-dropdown-link :href="route('dashboard')" wire:navigate>
+        <x-dropdown-link href="/">
             {{ __('Dashboard') }}
         </x-dropdown-link>
 
-        <x-dropdown-link :href="route('funds.index')" wire:navigate>
+        <x-dropdown-link href="/funds">
             {{ __('Funds') }}
         </x-dropdown-link>
 

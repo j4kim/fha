@@ -26,7 +26,6 @@ const routes = [
                         path: "",
                         component: () => import("./pages/Funds/Show.vue"),
                         name: "FundsShow",
-                        props: true,
                         meta: {
                             getBreadcrumbs: (fund) => [
                                 { text: "Funds", route: "/funds/" },
@@ -45,10 +44,27 @@ const routes = [
                         },
                     },
                     {
+                        path: "update",
+                        component: () => import("./pages/Funds/Update.vue"),
+                        name: "FundsUpdate",
+                        meta: {
+                            getBreadcrumbs: (fund) => [
+                                { text: "Funds", route: "/funds/" },
+                                { text: fund.ref, route: `/funds/${fund.id}` },
+                                { text: "Update" },
+                            ],
+                            getMenu: (fund) => [
+                                {
+                                    text: "Delete fund",
+                                    route: `/funds/${fund.id}/delete`,
+                                },
+                            ],
+                        },
+                    },
+                    {
                         path: "lots/:lotId",
                         component: () => import("./pages/Lots/Show.vue"),
                         name: "LotsShow",
-                        props: true,
                     },
                 ],
             },

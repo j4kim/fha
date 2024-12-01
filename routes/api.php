@@ -44,6 +44,10 @@ Route::get('funds/{fund}', function (Fund $fund) {
     return $fund->load('lots');
 });
 
+Route::put('funds/{fund}', function (Fund $fund, Request $request) {
+    return $fund->update($request->all());
+});
+
 Route::get('lots/{lot}', function (Lot $lot) {
     return $lot->load('fund');
 });

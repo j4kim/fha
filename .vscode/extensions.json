@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "bmewburn.vscode-intelephense-client",
-        "vue.volar"
+        "vue.volar",
+        "laravel.vscode-laravel"
     ]
 }

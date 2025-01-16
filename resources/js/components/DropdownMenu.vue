@@ -9,6 +9,9 @@ const user = window.user;
 </script>
 
 <template>
+    <a v-if="user" href="/_/profile" class="text-sm text-gray-500 hover:text-gray-700">
+        {{ user.name }}
+    </a>
     <Dropdown align="right" width="48">
         <template #trigger>
             <button class="text-gray-500 hover:text-gray-700 block">

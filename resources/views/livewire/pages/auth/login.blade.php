@@ -19,8 +19,7 @@ $login = function () {
     Session::regenerate();
 
     $this->redirect(
-        session('url.intended', RouteServiceProvider::HOME),
-        navigate: true
+        session('url.intended', RouteServiceProvider::HOME)
     );
 };
 

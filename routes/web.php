@@ -26,4 +26,5 @@ require __DIR__ . '/auth.php';
 
 Route::get('{any}', function () {
     return view('vue-app');
-})->where('any', '^(?!api).*$');
+})->where('any', '^(?!api).*$')
+  ->name('vue-app');

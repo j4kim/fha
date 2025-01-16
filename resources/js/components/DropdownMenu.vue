@@ -39,6 +39,6 @@ const user = window.user;
 
         <DropdownLink v-if="user" href="/logout"> Log out </DropdownLink>
 
-        <DropdownLink v-if="!user" href="/login"> Log in </DropdownLink>
+        <DropdownLink v-if="!user" href="/login-and-back"> Log in </DropdownLink>
     </Dropdown>
 </template>

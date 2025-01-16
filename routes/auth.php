@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -7,6 +8,11 @@ use Livewire\Volt\Volt;
 Route::middleware('guest')->group(function () {
     Volt::route('login', 'pages.auth.login')
         ->name('login');
+
+    Route::get('login-and-back', function (Request $request) {
+        session(['url.intended' => $request->header('referer')]);
+        return redirect()->route('login');
+    });
 
     Volt::route('forgot-password', 'pages.auth.forgot-password')
         ->name('password.request');

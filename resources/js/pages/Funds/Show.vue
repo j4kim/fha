@@ -19,8 +19,8 @@ store.breadcrumbs = [
     { text: state.fund.ref },
 ];
 store.menu = [
-    { text: "Update fund", route: `/funds/${state.fund.id}/update` },
-    { text: "Delete fund", route: `/funds/${state.fund.id}/delete` },
+    { text: "Update fund", route: `/funds/${state.fund.id}/update`, if: window.user },
+    { text: "Delete fund", route: `/funds/${state.fund.id}/delete`, if: window.user },
 ];
 </script>
 

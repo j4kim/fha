@@ -19,7 +19,7 @@ fetchFunds();
 watchDebounced(() => state.search, fetchFunds, { debounce: 500 });
 
 store.breadcrumbs = [{ text: "Funds" }];
-store.menu = [{ text: "New fund", route: "/funds/create" }];
+store.menu = [{ text: "New fund", route: "/funds/create", if: window.user }];
 </script>
 
 <template>

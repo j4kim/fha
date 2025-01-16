@@ -19,7 +19,7 @@ const user = window.user;
             </button>
         </template>
 
-        <template v-if="store.menu?.length">
+        <template v-if="store.filteredMenu.length">
             <DropdownLink
                 v-for="item in store.menu"
                 @click="router.push(item.route)"
